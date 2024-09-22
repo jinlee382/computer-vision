@@ -1,1 +1,22 @@
+# jupyter notebook # 
+
+# openai installation #
 !pip install openai
+
+# GPT start with api #
+
+from openai import OpenAI
+client = OpenAI(api_key='api_key')
+
+completion = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {
+            "role": "user",
+            "content": "openai 회사에 대해 알려줘"
+        }
+    ]
+)
+
+print(completion.choices[0].message)
